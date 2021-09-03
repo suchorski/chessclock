@@ -1,0 +1,60 @@
+{
+  "name": "@suchorski/chessclock",
+  "main": "app/app.ts",
+  "displayName": "Chess Clock",
+  "version": "1.0.0",
+  "description": "Chess Clock",
+  "author": "Thiago Suchorski <us@suchorski.com>",
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": "https://github.com/suchorski/chessclock",
+  "homepage": "https://github.com/suchorski/chessclock",
+  "bugs": {
+    "url": "https://github.com/suchorski/chessclock/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "app",
+    "App_Resources",
+    "hooks",
+    "tools",
+    "!tools/assets",
+    "types",
+    ".editorconfig",
+    "tsconfig.json"
+  ],
+  "keywords": [
+    "nstudio",
+    "nativescript",
+    "mobile",
+    "{N}",
+    "tns",
+    "vue",
+    "nativescript-vue",
+    "template",
+    "master-detail",
+    "detail",
+    "category-general"
+  ],
+  "dependencies": {
+    "@nativescript/core": "~8.0.0",
+    "@nativescript/firebase": "^11.1.3",
+    "@nativescript/localize": "^5.0.4",
+    "@nativescript/theme": "~3.0.1",
+    "@triniwiz/nativescript-toasty": "^4.1.3",
+    "nativescript-vue": "~2.9.0"
+  },
+  "devDependencies": {
+    "@nativescript/android": "8.0.0",
+    "@nativescript/ios": "8.0.0",
+    "@nativescript/types": "~8.0.0",
+    "@nativescript/webpack": "beta",
+    "@types/node": "~14.6.2",
+    "nativescript-vue-template-compiler": "~2.9.0",
+    "typescript": "~4.0.0",
+    "vue": "~2.6.12"
+  },
+  "private": "true",
+  "readme": "NativeScript Application"
+}

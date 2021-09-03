@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="_clock_winner_alert_close_ZdU7ev">"Close"</string>
+  <string name="_clock_winner_alert_title_ZcMjKI">"End game..."</string>
+  <string name="_clock_winner_black_hdE5l">"The black wins!"</string>
+  <string name="_clock_winner_white_iBBhR">"The white wins!"</string>
+  <string name="_clock_remaining_Z1dref8">"Remaining time"</string>
+  <string name="_clock_black_Z2lAhLy">"Black"</string>
+  <string name="_clock_white_Z2kckz2">"White"</string>
+  <string name="_clock_clock_Z2lw9Xj">"Clock"</string>
+  <string name="_configurations_ad_question_ZDRFmN">"Hide AD inside clock?"</string>
+  <string name="_configurations_ad_title_Z1fxgsl">"Advertising"</string>
+  <string name="_configurations_saved_k4wUS">"Configurations saved!"</string>
+  <string name="_configurations_delay_j4YsP">"Delay"</string>
+  <string name="_configurations_bonus_iXaON">"Bonus"</string>
+  <string name="_configurations_clock_info_1l2j6a">"Clock information"</string>
+  <string name="_configurations_clock_type_1l3N5w">"Clock Type"</string>
+  <string name="_configurations_clock_timers_19ib0s">"Clock Timers"</string>
+  <string name="_configurations_clock_same_1l3yQw">"Same value for black player?"</string>
+  <string name="_configurations_player_black_JXphh">"Black player"</string>
+  <string name="_configurations_player_white_LmmtN">"White player"</string>
+  <string name="_home_start_ZbNiwr">"Start Clock"</string>
+  <string name="_home_configurations_16Qwib">"Configurations"</string>
+  <string name="_clocks_bronstein_description_Z1D1cRH">"A delay is given before your normal time starts to run."</string>
+  <string name="_clocks_bronstein_name_1zPKeR">"Bronstein"</string>
+  <string name="_clocks_fischer_description_Z12A9ze">"A bonus is added at each end of a player\'s turn."</string>
+  <string name="_clocks_fischer_name_Z21Ax44">"Fischer"</string>
+  <string name="_clocks_default_description_ZHanOQ">"Standard digital clock."</string>
+  <string name="_clocks_default_name_1WQcrX">"Standard"</string>
+  <string name="_generics_minutes_ZMbdz0">"Minutes"</string>
+  <string name="_generics_seconds_hbJYQ">"Seconds"</string>
+  <string name="_generics_save_17VqzJ">"Save"</string>
+  <string name="_generics_back_17TcjL">"Back"</string>
+  <string name="_app_name_1k3Sbz">"Chess Clock"</string>
+  <string name="app_name">"Chess Clock"</string>
+  <string name="title_activity_kimera">"Chess Clock"</string>
+</resources>

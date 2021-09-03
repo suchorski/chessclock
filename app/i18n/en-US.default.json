@@ -1,0 +1,60 @@
+{
+  "app.name": "Chess Clock",
+  "generics": {
+    "back": "Back",
+    "save": "Save",
+    "seconds": "Seconds",
+    "minutes": "Minutes"
+  },
+  "clocks": {
+    "default": {
+      "name": "Standard",
+      "description": "Standard digital clock."
+    },
+    "fischer": {
+      "name": "Fischer",
+      "description": "A bonus is added at each end of a player's turn."
+    },
+    "bronstein": {
+      "name": "Bronstein",
+      "description": "A delay is given before your normal time starts to run."
+    }
+  },
+  "home": {
+    "configurations": "Configurations",
+    "start": "Start Clock"
+  },
+  "configurations": {
+    "player": {
+      "white": "White player",
+      "black": "Black player"
+    },
+    "clock": {
+      "same": "Same value for black player?",
+      "timers": "Clock Timers",
+      "type": "Clock Type",
+      "info": "Clock information"
+    },
+    "bonus": "Bonus",
+    "delay": "Delay",
+    "saved": "Configurations saved!",
+    "ad": {
+      "title": "Advertising",
+      "question": "Hide AD inside clock?"
+    }
+  },
+  "clock": {
+    "clock": "Clock",
+    "white": "White",
+    "black": "Black",
+    "remaining": "Remaining time",
+    "winner": {
+      "white": "The white wins!",
+      "black": "The black wins!",
+      "alert": {
+        "title": "End game...",
+        "close": "Close"
+      }
+    }
+  }
+}

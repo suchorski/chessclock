@@ -1,0 +1,60 @@
+{
+  "app.name": "Relógio de Xadrez",
+  "generics": {
+    "back": "Voltar",
+    "save": "Salvar",
+    "seconds": "Segundos",
+    "minutes": "Minutos"
+  },
+  "clocks": {
+    "default": {
+      "name": "Normal",
+      "description": "Relógio digital comum."
+    },
+    "fischer": {
+      "name": "Fischer",
+      "description": "Um bonus é adicionado a cada fim de turno do jogador."
+    },
+    "bronstein": {
+      "name": "Bronstein",
+      "description": "Um delay é dado antes que seu tempo normal comece a correr."
+    }
+  },
+  "home": {
+    "configurations": "Configurações",
+    "start": "Iniciar Relógio"
+  },
+  "configurations": {
+    "player": {
+      "white": "Brancas",
+      "black": "Pretas"
+    },
+    "clock": {
+      "same": "Mesmo timer para as pretas?",
+      "timers": "Tempos dos Relógios",
+      "type": "Tipo do Relógio",
+      "info": "Informação do relógio"
+    },
+    "bonus": "Tempo adicional",
+    "delay": "Tempo livre",
+    "saved": "Configurações salvas!",
+    "ad": {
+      "title": "Propagandas",
+      "question": "Esconder propagandas no relógio?"
+    }
+  },
+  "clock": {
+    "clock": "Relógio",
+    "white": "Brancas",
+    "black": "Pretas",
+    "remaining": "Tempo restante",
+    "winner": {
+      "white": "As brancas venceram!",
+      "black": "As pretas venceram!",
+      "alert": {
+        "title": "Fim do temp...",
+        "close": "Fechar"
+      }
+    }
+  }
+}
