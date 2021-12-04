@@ -14,7 +14,6 @@
 <script lang="ts">
 import Clock from '@/components/Clock.vue';
 import Options from '@/components/Options.vue';
-import { Configuration } from '@/classes/configuration';
 
 declare let __DEV__: boolean;
 
@@ -24,7 +23,6 @@ export default {
     return {
       adLoaded: false,
       canStart: false,
-      reward: Configuration.copy.ad.rewarded,
       rewarded: false,
     };
   },
@@ -37,23 +35,19 @@ export default {
         this.canStart = false;
         if (this.adLoaded) {
           this.adLoaded = false;
-          if (this.reward) {
-            this.$firebase.admob.showRewardedVideoAd({
-              onRewarded: () => {
-                this.rewarded = true;
-              },
-              onClosed: () => {
-                if (this.rewarded) {
-                  this.$navigateTo(Clock);
-                } else {
-                  this.onNavigatedFrom();
-                  this.onNavigatedTo();
-                }
-              },
-            });
-          } else {
-            this.$firebase.admob.showInterstitial();
-          }
+          this.$firebase.admob.showRewardedVideoAd({
+            onRewarded: () => {
+              this.rewarded = true;
+            },
+            onClosed: () => {
+              if (this.rewarded) {
+                this.$navigateTo(Clock);
+              } else {
+                this.onNavigatedFrom();
+                this.onNavigatedTo();
+              }
+            },
+          });
         } else {
           this.$navigateTo(Clock);
         }
@@ -64,48 +58,24 @@ export default {
       this.canStart = false;
     },
     onNavigatedTo() {
-      this.reward = Configuration.copy.ad.rewarded;
       const keywords = ['chess', 'clock'];
-      if (this.reward) {
-        this.$firebase.admob
-          .preloadRewardedVideoAd({
-            androidAdPlacementId: __DEV__ ? 'ca-app-pub-3940256099942544/1712485313' : 'ca-app-pub-7255006190009562/7140961251',
-            iosAdPlacementId: __DEV__ ? 'ca-app-pub-3940256099942544/1712485313' : 'ca-app-pub-7255006190009562/3345703394',
-            testing: __DEV__,
-            keywords,
-          })
-          .then(
-            () => {
-              this.adLoaded = true;
-              this.canStart = true;
-            },
-            () => {
-              this.adLoaded = false;
-              this.canStart = true;
-            }
-          );
-      } else {
-        this.$firebase.admob
-          .preloadInterstitial({
-            androidInterstitialId: __DEV__ ? 'ca-app-pub-3940256099942544/4411468910' : 'ca-app-pub-7255006190009562/8454042921',
-            iosInterstitialId: __DEV__ ? 'ca-app-pub-3940256099942544/4411468910' : 'ca-app-pub-7255006190009562/6659984642',
-            testing: __DEV__,
-            keywords,
-            onClosed: () => {
-              this.$navigateTo(Clock);
-            },
-          })
-          .then(
-            () => {
-              this.adLoaded = true;
-              this.canStart = true;
-            },
-            () => {
-              this.adLoaded = false;
-              this.canStart = true;
-            }
-          );
-      }
+      this.$firebase.admob
+        .preloadRewardedVideoAd({
+          androidAdPlacementId: __DEV__ ? 'ca-app-pub-3940256099942544/1712485313' : process.env.ANDROID_ADMOB_REWARDED_VIDEO_ID,
+          iosAdPlacementId: __DEV__ ? 'ca-app-pub-3940256099942544/1712485313' : process.env.IOS_ADMOB_REWARDED_VIDEO_ID,
+          testing: __DEV__,
+          keywords,
+        })
+        .then(
+          () => {
+            this.adLoaded = true;
+            this.canStart = true;
+          },
+          () => {
+            this.adLoaded = false;
+            this.canStart = true;
+          }
+        );
     },
   },
 };

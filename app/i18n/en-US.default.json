@@ -37,11 +37,7 @@
     },
     "bonus": "Bonus",
     "delay": "Delay",
-    "saved": "Configurations saved!",
-    "ad": {
-      "title": "Advertising",
-      "question": "Hide AD inside clock?"
-    }
+    "saved": "Configurations saved!"
   },
   "clock": {
     "clock": "Clock",

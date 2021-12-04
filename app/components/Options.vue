@@ -36,11 +36,6 @@
       </DockLayout>
       <Label class="h2" :text="'configurations.clock.info' | L" textWrap="true" marginTop="20" />
       <Label :text="types[cfg.clock.type].description | L" textWrap="true" />
-      <Label class="h2" :text="'configurations.ad.title' | L" textWrap="true" marginTop="20" />
-      <DockLayout stretchLastChild="true">
-        <Switch v-model="cfg.ad.rewarded" dock="right" width="25%" />
-        <Label style.verticalAlignment="center" :text="'configurations.ad.question' | L" textWrap="true" />
-      </DockLayout>
     </StackLayout>
   </Page>
 </template>

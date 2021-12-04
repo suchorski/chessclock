@@ -1,9 +1,9 @@
 <template>
-  <Page @loaded="loaded">
+  <Page>
     <ActionBar :title="'clock.clock' | L">
       <NavigationButton :text="'generics.back' | L" android.systemIcon="ic_menu_back" @tap="stopClock"></NavigationButton>
     </ActionBar>
-    <GridLayout columns="*" rows="*, auto, auto, *">
+    <GridLayout columns="*" rows="*, *">
       <Button row="0" col="0" :isEnabled="!finished && !whiteTurn" class="button black upsidedown" @tap="blackTap">
         <FormattedString>
           <Span :text="`${blackText.color}\n`" fontSize="20" />
@@ -16,9 +16,7 @@
           <Span :text="ticks.delay.black | toSeconds" fontSize="38" v-if="clock.type === 2" />
         </FormattedString>
       </Button>
-      <Placeholder v-if="showAd" row="1" col="0" @creatingView="creatingView" id="bannerViewBlack" class="upsidedown" />
-      <Placeholder v-if="showAd" row="2" col="0" @creatingView="creatingView" id="bannerViewWhite" />
-      <Button row="3" col="0" :isEnabled="!finished && whiteTurn" class="button white" @tap="whiteTap">
+      <Button row="1" col="0" :isEnabled="!finished && whiteTurn" class="button white" @tap="whiteTap">
         <FormattedString>
           <Span :text="`${whiteText.color}\n`" fontSize="20" />
           <Span :text="'\n'" fontSize="20" />
@@ -35,17 +33,9 @@
 </template>
 
 <script lang="ts">
-import { isIOS } from '@nativescript/core';
 import { Type } from '@/types/clock';
 import { Configuration } from '@/classes/configuration';
 import { Dialogs } from '@nativescript/core';
-
-declare let __DEV__: boolean;
-declare const com;
-declare const GADBannerView;
-declare const GADRequest;
-declare const kGADAdSizeSmartBannerPortrait;
-declare const kGADSimulatorID;
 
 const calcTicks = (ticks: number | { minutes: number; seconds: number }) => {
   if (typeof ticks === 'number') {
@@ -75,7 +65,6 @@ export default {
           black: cfg.timers.same ? calcTicks(cfg.timers.player.white) : calcTicks(cfg.timers.player.black),
         },
       },
-      showAd: !cfg.ad.rewarded,
     };
   },
   computed: {
@@ -189,51 +178,6 @@ export default {
       this.ticks.last = time;
       return t;
     },
-    creatingView(args) {
-      if (isIOS) {
-        const bannerView = GADBannerView.alloc().initWithAdSize(kGADAdSizeSmartBannerPortrait);
-        args.view = bannerView;
-      } else {
-        const bannerView = new com.google.android.gms.ads.AdView(args.object._context);
-        bannerView.setAdSize(com.google.android.gms.ads.AdSize.SMART_BANNER);
-        args.view = bannerView;
-      }
-    },
-    loaded(args) {
-      if (this.showAd) {
-        const page = args.object;
-        const placeholderWhite = page.getViewById('bannerViewWhite');
-        const placeholderBlack = page.getViewById('bannerViewBlack');
-        const placeholderIOS = (bannerView, placeholder) => {
-          if (!bannerView) {
-            bannerView = placeholder.ios;
-            bannerView.adUnitID = __DEV__ ? 'ca-app-pub-3940256099942544/6300978111' : 'ca-app-pub-7255006190009562/7375727569';
-            bannerView.rootViewController = page.ios;
-            const request = GADRequest.request();
-            request.testDevices = [kGADSimulatorID];
-            this.bannerView.loadRequest(request);
-          }
-        };
-        const placeholderAndroid = (bannerView, placeholder) => {
-          if (!bannerView) {
-            const View = android.view.View;
-            bannerView = placeholder.android;
-            bannerView.setAdUnitId(__DEV__ ? 'ca-app-pub-3940256099942544/6300978111' : 'ca-app-pub-7255006190009562/2187376848');
-            const adRequest = new com.google.android.gms.ads.AdRequest.Builder();
-            adRequest.addTestDevice(com.google.android.gms.ads.AdRequest.DEVICE_ID_EMULATOR);
-            const requestBuild = adRequest.build();
-            bannerView.loadAd(requestBuild);
-          }
-        };
-        if (isIOS) {
-          placeholderIOS(this.bannerViewWhite, placeholderWhite);
-          placeholderIOS(this.bannerViewBlack, placeholderBlack);
-        } else {
-          placeholderAndroid(this.bannerViewWhite, placeholderWhite);
-          placeholderAndroid(this.bannerViewBlack, placeholderBlack);
-        }
-      }
-    },
   },
   filters: {
     toSeconds(value: number) {
@@ -257,9 +201,5 @@ export default {
     color: #ffffff;
     background-color: #666666;
   }
-}
-
-.upsidedown {
-  transform: rotate(180 deg);
 }
 </style>

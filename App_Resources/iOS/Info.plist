@@ -15,11 +15,11 @@
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
-    <string>1.0</string>
+    <string>1.1</string>
     <key>CFBundleSignature</key>
     <string>????</string>
     <key>CFBundleVersion</key>
-    <string>1.0</string>
+    <string>1.1</string>
     <key>LSRequiresIPhoneOS</key>
     <true/>
     <key>UILaunchStoryboardName</key>
@@ -44,7 +44,7 @@
       <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
     <key>GADApplicationIdentifier</key>
-    <string>ca-app-pub-7255006190009562~8688809230</string>
+    <string>CA-PUB-APP-ID</string>
     <key>NSAppTransportSecurity</key>
     <dict>
       <key>NSAllowsArbitraryLoads</key>

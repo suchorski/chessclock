@@ -6,7 +6,6 @@ const defaultConfig: IConfiguration = {
   version: configVersion,
   timers: { player: { white: { minutes: 10, seconds: 0 }, black: { minutes: 10, seconds: 0 } }, same: true },
   clock: { type: Type.NORMAL, delay: { fischer: 3, bronstein: 15 } },
-  ad: { rewarded: false }
 };
 
 export class Configuration {

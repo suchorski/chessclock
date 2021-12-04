@@ -37,11 +37,7 @@
     },
     "bonus": "Tempo adicional",
     "delay": "Tempo livre",
-    "saved": "Configurações salvas!",
-    "ad": {
-      "title": "Propagandas",
-      "question": "Esconder propagandas no relógio?"
-    }
+    "saved": "Configurações salvas!"
   },
   "clock": {
     "clock": "Relógio",

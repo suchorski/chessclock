@@ -2,7 +2,7 @@
   "name": "@suchorski/chessclock",
   "main": "app/app.ts",
   "displayName": "Chess Clock",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Chess Clock",
   "author": "Thiago Suchorski <us@suchorski.com>",
   "license": "SEE LICENSE IN LICENSE",
